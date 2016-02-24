@@ -6,12 +6,12 @@ namespace CryptogramSolver
 
     //Author: Christopher Hernandez
 
-    class Program
+    internal class Program
     {
         private static string _cryptoMessage = "q nuie ufcdgl dgqgskfkpskl qg tcd, mds pzcdil tcd zqs jk tcd xug kvakxs jk sc sft ugl psdg ussuxe. mkxudpk q xcdil gcs mkuf icpqgw jt zcgkt sc tcd.";
         private static string _alphabet = "abcdefghijklmnopqrstuvwxyz";
 
-        static int Main()
+        public static int Main()
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(_cryptoMessage);
@@ -32,8 +32,8 @@ namespace CryptogramSolver
                     Console.WriteLine("Alphabet: {0}", tempAlphabet);
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     var cryptKeyObject = new Key(cryptObject, tempAlphabet);
-                    Key.CreateDict(cryptObject, tempAlphabet);
-                    Key.PrintDict();
+                    cryptKeyObject.CreateDict(cryptObject, tempAlphabet);
+                    cryptKeyObject.PrintDict();
                     counter++;
                     permutations++;
                     Console.WriteLine();

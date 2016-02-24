@@ -23,9 +23,12 @@ namespace CryptogramSolver
             return wordArray;
         }
 
-        //get raw message
+        public string GetRawMessage()
+        {
+            return _rawMessage;
+        }
 
-        public string[] getWordArray()
+        public string[] GetWordArray()
         {
             return _wordArray;
         }
