@@ -1,23 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CryptogramSolver
+﻿namespace CryptogramSolver
 {
-    class Cryptogram
+    internal class Cryptogram
     {
-        private string _rawMessage;
-        private string[] _wordArray;
+        private readonly string _rawMessage;
+        private readonly string[] _wordArray;
         
         public Cryptogram(string message)
         {
             _rawMessage = message;
-            _wordArray = createWordArray(message);
+            _wordArray = CreateWordArray(message);
         }
 
-        private string[] createWordArray(string message)
+        private string[] CreateWordArray(string message)
         {
             var wordArray = message.Split(' ');
             return wordArray;

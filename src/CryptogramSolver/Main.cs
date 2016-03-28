@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace CryptogramSolver
 {
@@ -8,8 +7,8 @@ namespace CryptogramSolver
 
     internal class Program
     {
-        private static string _cryptoMessage = "q nuie ufcdgl dgqgskfkpskl qg tcd, mds pzcdil tcd zqs jk tcd xug kvakxs jk sc sft ugl psdg ussuxe. mkxudpk q xcdil gcs mkuf icpqgw jt zcgkt sc tcd.";
-        private static string _alphabet = "abcdefghijklmnopqrstuvwxyz";
+        private static readonly string _cryptoMessage = "ipke et bdpqs, bryqd opkc lpbs. ayrk ifed lfrs! tyeqfwsrq gfbvswsw yg rpi trs, opvs opw! rtpo rtykw ifed eit opk brsi, kte smsk tks npwc xfms bdpqfkx. ksmsr qopbv nfgq, kte qskw soteftk, opvs msrc opw! ipebd btygnsq anti vfqqsq, apac eyrk gprskeq qnpmsq. wrtg os bfxprsees, skw yg sjersosnc opw!";
+        private static readonly string _alphabet = "abcdefghijklmnopqrstuvwxyz";
 
         public static int Main()
         {
@@ -22,7 +21,16 @@ namespace CryptogramSolver
             var startTime = DateTime.Now;
 
             var cryptObject = new Cryptogram(_cryptoMessage);
-            
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Alphabet: {0}", _alphabet);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            var cryptKeyObject = new Key(cryptObject, _alphabet);
+            cryptKeyObject.CreateDict(cryptObject, _alphabet);
+            cryptKeyObject.PrintDict();
+            Console.WriteLine();
+
+            /*
             foreach (var letter in _alphabet)
             {
                 foreach (var lett in _alphabet)
@@ -41,7 +49,8 @@ namespace CryptogramSolver
                 counter = 0;
                 counterTwo++;
             }
-            
+            */
+
             var totalSeconds = (DateTime.Now - startTime).TotalSeconds;
             Console.WriteLine("Program took {0} seconds to create {1} permutations", totalSeconds, permutations);
 
